@@ -1,0 +1,97 @@
+# Gestión para la generación automática de exámenes  
+**Bases de Datos II - Ingeniería de Software**  
+
+**Curso:** 2025 - 2026  
+
+El presente documento describe una problemática para ser resuelta durante el semestre. Presenta además, particulares a evaluar por cada asignatura de manera independiente y en conjunto.  
+
+---
+
+## Características generales  
+
+El proyecto tributa a la evaluación de las asignaturas **Bases de Datos II** e **Ingeniería de Software**, donde cada una controlará aspectos no necesariamente coincidentes.  
+
+El desarrollo de la solución será llevado a cabo por un equipo de estudiantes de hasta 5 integrantes, aunque la cantidad exacta de miembros se confirmará durante las primeras clases presenciales.  
+
+La nota de cada miembro del equipo será **individual** y no necesariamente la misma para ambas asignaturas, teniendo en cuenta:  
+
+- Labor de curso.  
+- Trabajo del equipo.  
+- Requisitos particulares de la asignatura de Bases de Datos (ver archivo adjunto).  
+- Requisitos particulares de la asignatura de Ingeniería de Software (al final del documento).  
+
+---
+
+## Descripción del problema  
+
+Se desea confeccionar una **aplicación web** que dé como solución un sistema para gestionar la generación automática de los exámenes dentro de una institución educativa.  
+
+La solución tendrá que:  
+- Administrar las preguntas de examen, las asignaturas y los temas/subtemas.  
+- Gestionar profesores (crear/validar exámenes).  
+- Gestionar estudiantes que realizarán los exámenes.  
+- Adaptar los exámenes a criterios preestablecidos:  
+  - Grado de dificultad.  
+  - Tipo de pregunta.  
+  - Distribución de los temas.  
+
+### Funcionalidades clave:  
+
+- Los profesores podrán ingresar preguntas al banco de preguntas.  
+- Clasificación de preguntas por **tema** y **tipo** (opción múltiple, verdadero/falso, ensayo).  
+- Asignación de **nivel de dificultad** (fácil, medio, difícil).  
+- Generación automática de exámenes a partir de parámetros.  
+- Visualización de exámenes creados por otros profesores de la misma asignatura.  
+- Evitar duplicados de preguntas y asignaciones incorrectas.  
+
+### Para estudiantes:  
+- Acceder a los exámenes asignados.  
+- Almacenamiento de respuestas.  
+- Consultar calificaciones.  
+- Solicitar recalificación indicando profesor.  
+
+### Para el sistema:  
+- Guardar en base de datos todos los procesos (incluyendo recalificaciones).  
+- Reportes de:  
+  - Creación de exámenes.  
+  - Preguntas más utilizadas.  
+  - Distribución de dificultades.  
+  - Desempeño de estudiantes según dificultad.  
+
+---
+
+## Funcionalidades a implementar  
+
+1. Listar exámenes generados automáticamente para una asignatura específica.  
+2. Obtener preguntas más utilizadas en exámenes finales (por dificultad y tema).  
+3. Listar exámenes validados por un revisor (fecha y observaciones).  
+4. Generar reporte sobre desempeño de estudiantes en un examen (clasificación por dificultad).  
+5. Determinar correlación entre dificultad de preguntas y rendimiento promedio de estudiantes.  
+   - Identificar 10 preguntas con mayor tasa de reprobación.  
+   - Indicar profesor que las creó.  
+   - Comparar desempeño con estudiantes que solicitaron recalificación.  
+6. Comparar exámenes de diferentes asignaturas (distribución de preguntas por tema/dificultad).  
+7. Registro detallado de profesores que han revisado exámenes en los últimos dos semestres.  
+
+**Nota:** El sistema debe permitir exportar reportes en **PDF** y ordenar columnas de resultados.  
+
+---
+
+## Requisitos particulares de la asignatura de Ingeniería de Software  
+
+Además de la implementación de la aplicación web, las evaluaciones incluirán seminarios y preguntas escritas.  
+
+### Requerimientos para calificación:  
+
+1. Uso de **control de versiones** (GitHub, TFS, etc.).  
+2. Planificación con alguna herramienta CASE (GitHub, Jira, Gantt, etc.).  
+3. Sistema **multiplataforma**.  
+4. Cumplir con todos los requerimientos funcionales.  
+5. Buenas prácticas de programación (incluyendo **docstrings** en el código).  
+6. Implementar al menos **dos patrones de diseño**.  
+7. Arquitectura desacoplada, extensible y mantenible.  
+8. Pruebas unitarias para backend y frontend.  
+
+📌 **Importante:** Para aprobar la asignatura es indispensable cumplir con los **primeros seis puntos**.  
+
+---
