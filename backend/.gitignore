@@ -7,15 +7,3 @@ node_modules/
 
 # Ignorar la carpeta dist/ (archivos compilados)
 dist/
-
-# Archivos de log
-*.log
-
-# Archivos del sistema operativo (MacOS, Windows)
-.DS_Store
-Thumbs.db
-
-# Ignorar los archivos de IDEs
-.vscode/
-.idea/
-*.swp
