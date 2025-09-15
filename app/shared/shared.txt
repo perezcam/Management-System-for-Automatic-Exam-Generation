@@ -1,0 +1,3 @@
+Propósito:
+Almacenar clases, tipos, servicios y utilidades que sí están ligados al dominio, 
+pero que son comunes a varios dominios o subdominios.
