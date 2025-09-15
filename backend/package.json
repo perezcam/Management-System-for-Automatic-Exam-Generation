@@ -2,11 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch app/server.ts",
-    "start": "node dist/server.js",
-    "build": "tsc -p tsconfig.json"
+    "dev": "tsx src/server.ts",    
+    "build": "tsc",                
+    "start": "node dist/server.js" 
   },
   "keywords": [],
   "author": "",
@@ -17,9 +19,8 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
-    "@types/node": "^24.3.3",
+    "@types/node": "^24.4.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
-  },
-  "type": "module"
+  }
 }

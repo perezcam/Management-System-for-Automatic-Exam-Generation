@@ -2,12 +2,12 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir": "app",
+    "rootDir": "src",
     "outDir": "dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es2020",
     "types": [],
     // For nodejs:
@@ -42,5 +42,12 @@
     "skipLibCheck": true,
 
     "esModuleInterop": true,
-  }
+  },
+  "include": [
+    "src/**/*.ts"                  // Incluye todos los archivos .ts en la carpeta src/
+  ],
+  "exclude": [
+    "node_modules",                // Excluye la carpeta node_modules
+    "dist"                         // Excluye la carpeta dist/ de la compilación
+  ]
 }
