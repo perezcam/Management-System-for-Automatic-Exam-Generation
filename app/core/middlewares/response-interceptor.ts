@@ -4,7 +4,9 @@ import { httpLogger  } from "../logging/httpLogger";
 import { formatHttpLoggerResponse } from "../helpers/logging_helpers/formatHttpLoggerRespond";
 
 
-
+//TODO: En caso de error, eliminar este middleware y crear uno nuevo que no devuelva el body, y se haga con el evento
+// res.on('finish') de express, esto evita tener que sobreescribir la funcion res.send de express, y tambien tener que 
+// iterar buscando excluir contrasennas y otros datos confidenciales
 const responseInterceptor = (
     req : Request,
     res : Response,
