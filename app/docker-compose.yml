@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    networks:
+      - backend
+
+  app:
+    image: msfaeg
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - JWT_TOKEN=${JWT_TOKEN}
+    depends_on:
+      - db
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
