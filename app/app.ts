@@ -1,6 +1,6 @@
-import {sequelize} from "./database/migrations/database";
-import { createDatabaseIfNotExists } from "./database/migrations/database";
-import { connect } from "./database/migrations/database";
+import {sequelize} from "./database/database";
+import { createDatabaseIfNotExists } from "./database/database";
+import { connect } from "./database/database";
 import Question from "./domains/question-bank/models/Question";
 import express from "express";
 
