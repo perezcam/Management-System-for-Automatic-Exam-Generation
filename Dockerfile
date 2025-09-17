@@ -8,8 +8,9 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5000
 
 ENV LOG_LEVEL=debug
 
-CMD ["npm", "start"]
+CMD ["npm run dev"]
+
