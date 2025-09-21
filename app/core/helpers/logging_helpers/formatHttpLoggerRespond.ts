@@ -5,7 +5,7 @@ import { excludeSensitiveInfoInData  } from "./sensitiveInfoExcluder";
 const formatHttpLoggerResponse = (
     req : Request,
     res : Response,
-    responseBody : any, //TODO: Aqui se deberia cambiar a schema base o algo asi 
+    responseBody : any,
     requestStartTime : number,
 ) => {
 
