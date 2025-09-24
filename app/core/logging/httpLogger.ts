@@ -25,7 +25,7 @@ const httpLogger = winston.createLogger({
         new DailyRotateFile({
             filename: 'logs/http/%DATE%.log', 
             datePattern: 'MMMM-DD-YYYY',
-            zippedArchive: false, //TODO: Quizá cambiar a true después
+            zippedArchive: true, 
             maxSize: '20m', 
             maxFiles: '7d' 
         })

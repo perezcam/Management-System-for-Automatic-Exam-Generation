@@ -10,6 +10,29 @@ export const mysqlConfig = {
   port: parseInt(process.env.DB_PORT!),
 };
 
+const PORT = mysqlConfig.port
+console.log("🔧 DB Config:", { PORT });
+
+// Espera a que MySQL acepte conexiones (reintentos)
+async function waitForDb(maxRetries = 30, delayMs = 1000) {
+  for (let i = 1; i <= maxRetries; i++) {
+    try {
+      const conn = await mysql.createConnection({
+        host: mysqlConfig.host,
+        user: mysqlConfig.user,
+        password: mysqlConfig.password,
+        port: mysqlConfig.port,
+      });
+      await conn.end();
+      return;
+    } catch (err) {
+      console.log(`DB no lista aún (intento ${i}/${maxRetries})…`);
+      await new Promise((r) => setTimeout(r, delayMs));
+    }
+  }
+  throw new Error("MySQL no respondió a tiempo");
+}
+
 export const createDatabaseIfNotExists = async (): Promise<void> => {
   const connection = await mysql.createConnection(mysqlConfig);
   await connection.query(`CREATE DATABASE IF NOT EXISTS \`${databaseName}\`;`);
@@ -31,6 +54,7 @@ export const sequelize = new Sequelize(
 
 export const connect = async (): Promise<void> => {
   try {
+    await waitForDb();
     await createDatabaseIfNotExists();
     await sequelize.authenticate();
     console.log('Connected to MySQL');
