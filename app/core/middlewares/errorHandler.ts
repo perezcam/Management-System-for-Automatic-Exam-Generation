@@ -1,12 +1,15 @@
 import { NextFunction, Request, Response } from "express";
-import { AppError } from "../../shared/errors/appError";
-import { errorLogger } from "../logging/errorLogger";
+import { AppError } from "../../shared/exceptions/appError";
 import { HttpStatus } from "../../shared/enums/httpStatusEnum";
+import { SystemLogger } from "../logging/logger";
+import { get_logger } from "../dependencies/dependencies";
 
 
 export function errorHandler(err: unknown, req: Request, res: Response, _next: NextFunction) {
+
+    const logger: SystemLogger = get_logger()
     if (err instanceof AppError) {
-        errorLogger.error({
+        logger.errorLogger.error({
             message: err.message,
             code: err.code,
             statusCode: err.statusCode,
@@ -25,7 +28,7 @@ export function errorHandler(err: unknown, req: Request, res: Response, _next: N
         statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
     };
 
-    errorLogger.error({
+    logger.errorLogger.error({
         ...payload,
         stack: err instanceof Error ? err.stack : undefined,
         path: req.originalUrl,

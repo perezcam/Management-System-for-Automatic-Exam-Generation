@@ -1,15 +1,18 @@
 import { NextFunction } from "connect"
 import { Request, Response } from "express"
-import { httpLogger  } from "../logging/httpLogger";
-import { formatHttpLoggerResponse } from "../helpers/logging_helpers/formatHttpLoggerRespond";
+import { formatHttpLoggerResponse } from "../logging/helpers/formatHttpLoggerRespond";
+import { SystemLogger } from "../logging/logger";
+import { get_logger } from "../dependencies/dependencies";
 
 
 const responseInterceptor = (
     req : Request,
     res : Response,
-    next : NextFunction
+    next : NextFunction,
 ) => {
 
+    const logger : SystemLogger = get_logger()
+    
     const requestStartTime = Date.now();
     const originalSend = res.send;
 
@@ -19,9 +22,9 @@ const responseInterceptor = (
 
         if (!responseSent) {
             if (res.statusCode < 400) {
-                httpLogger.info("Request processed successfully", formatHttpLoggerResponse(req, res, body, requestStartTime));
+                logger.httpLogger.info("Request processed successfully", formatHttpLoggerResponse(req, res, body, requestStartTime));
             } else {
-                httpLogger.error(body.message, formatHttpLoggerResponse(req, res, body, requestStartTime));
+                logger.httpLogger.error(body.message, formatHttpLoggerResponse(req, res, body, requestStartTime));
             }
             responseSent = true;
         }; 

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { ObjectSchema } from "joi";
-import { ValidationError } from "../../shared/errors/domainErrors";
+import { ValidationError } from "../../shared/exceptions/domainErrors";
 
 
 

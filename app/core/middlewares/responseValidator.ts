@@ -1,6 +1,6 @@
 import { ObjectSchema } from 'joi';
 import { Request, Response, NextFunction } from 'express';
-import { ValidationError } from '../../shared/errors/domainErrors';
+import { ValidationError } from '../../shared/exceptions/domainErrors';
 
 
 function validate_response<T>(schema: ObjectSchema<T>) {
