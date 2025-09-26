@@ -1,5 +1,5 @@
 import { Sequelize, Model, STRING } from "sequelize";
-import { sequelize } from "../../../database/migrations/database";
+import { sequelize } from "../../../database/database";
 
 class Question extends Model{
     public id! : string;
